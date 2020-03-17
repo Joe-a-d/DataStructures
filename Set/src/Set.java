@@ -3,6 +3,7 @@
  * @author Domingues, Joao #2334590D
  */
 
+
 public interface Set<E> {
 
 // Observers
@@ -13,6 +14,8 @@ public interface Set<E> {
 
     public int size();
 
+    public Set<E> isSubset(Set<E> S);
+
 // Mutators
 
     public void add(E el);
@@ -20,6 +23,12 @@ public interface Set<E> {
     public void remove(E el);
 
 // Producers
+
+    public Set<E> union(Set<E> T);
+
+    public Set<E> diff(Set<E> T);
+
+    public Set<E> intersection(Set<E> T);
 
 
 }

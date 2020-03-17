@@ -10,18 +10,14 @@ public class listSet<E> implements Set<E> {
         tail = new Node<>(null);
     }
 
-    public void traverse(Node<E> cursor) {
-
-    }
 
     @Override
     public boolean isElement(E el) {
         Node<E> cursor = head;
-        while(cursor!=null) {
-            if(cursor.getEl() == el) {
+        while (cursor.getNext() != null) {
+            if (cursor.getEl().equals(el)) {
                 return true;
-            }
-            else {
+            } else {
                 cursor = cursor.getNext();
             }
         }
@@ -45,7 +41,7 @@ public class listSet<E> implements Set<E> {
 
     @Override
     public void add(E el) {
-        if(isElement(el)) return;
+        if (isElement(el)) return;
         Node<E> newNode = new Node<>(el);
 
         if (head == null) {
@@ -62,11 +58,11 @@ public class listSet<E> implements Set<E> {
 
     @Override
     public void remove(E el) {
-        if(!isElement(el)) return;
+        if (!isElement(el)) return;
         Node<E> cursor = head;
 
-        while(cursor!=null){
-            if(cursor.getEl() == el){
+        while (cursor.getNext() != null) {
+            if (cursor.getEl().equals(el)) {
                 cursor.getNext().setPrev(cursor.getPrev());
                 cursor.getPrev().setNext(cursor.getNext());
                 cursor.setNext(null);
@@ -79,9 +75,27 @@ public class listSet<E> implements Set<E> {
     }
 
     @Override
-    public Set<E> union(Set<E> T) {
-        return null;
+    public Set<E> union(Set<E> S) {
+        Node<E> cursor = head;
+
+        while(cursor.getNext() != null){
+            E key = cursor.getEl();
+            if(S.isElement(key)){
+                cursor = cursor.getNext();
+                continue;
+            }
+            // the specs didn't specify whether S,T need be preserved or not
+            // this is a non-preserving approach, since S is transformed
+            // it's faster since we are not creating a new set, and adding from both S & T
+            S.add(key);
+
+        }
+        return S;
     }
+
+
+
+
 
     @Override
     public Set<E> diff(Set<E> T) {
@@ -93,6 +107,14 @@ public class listSet<E> implements Set<E> {
         return null;
     }
 
-    
+    public void print() {
+        Node<E> cursor = head;
+        while (cursor != null) {
+            System.out.print(cursor.getEl() + " ");
+            cursor = cursor.getNext();
+        }
+        System.out.println();
+
+    }
 
 }
