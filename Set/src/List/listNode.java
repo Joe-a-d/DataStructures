@@ -1,3 +1,7 @@
+/**
+ * @author Domingues, Joao #2334590D
+ */
+
 package List;
 
 public class listNode<E> {

@@ -1,3 +1,7 @@
+/**
+ * @author Domingues, Joao #2334590D
+ */
+
 package List;/*
  the specs didn't specify whether S,T need be preserved or not
  every op that take 2 sets are set-preserving
@@ -156,14 +160,5 @@ public class listSet<E> implements Set<E> {
         return intSet;
     }
 
-    public void print() {
-        listNode<E> cursor = head;
-        while (cursor != null) {
-            System.out.print(cursor.getEl() + " ");
-            cursor = cursor.getNext();
-        }
-        System.out.println();
-
-    }
 
 }

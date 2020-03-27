@@ -1,3 +1,7 @@
+/**
+ * @author Domingues, Joao #2334590D
+ */
+
 package Tree;
 
 public class bstNode {

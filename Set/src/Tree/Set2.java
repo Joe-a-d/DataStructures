@@ -2,6 +2,10 @@ package Tree;
 
 /**
  * @author Domingues, Joao #2334590D
+ *
+ * Naive implementation of a Set using a BST.
+ *
+ * [TO DO] Visitor Design Pattern
  */
 
 // I have used two interfaces, since I'm not using generics for the BST implementation
